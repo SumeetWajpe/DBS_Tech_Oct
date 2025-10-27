@@ -1,0 +1,23 @@
+[
+  {
+    "title": "React",
+    "price": 8000,
+    "rating": 4,
+    "likes": 200,
+    "trainer": "Mr. Sumeet"
+  },
+  {
+    "title": "Redux",
+    "price": 6000,
+    "rating": 5,
+    "likes": 500,
+    "trainer": "Mr. Aniket"
+  },
+  {
+    "title": "Angular",
+    "price": 6000,
+    "rating": 4,
+    "likes": 500,
+    "trainer": "Mr. Praveen"
+  }
+]
