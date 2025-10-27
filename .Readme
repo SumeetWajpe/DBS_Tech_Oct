@@ -1,0 +1,22 @@
+# CodeSgare URL
+https://codeshare.io/a3ZxVB
+
+# MongoDB Commands
+
+# Show all databases
+show dbs
+
+# Insert one record (document)
+db.courses.insertOne({title:"React",price:8000,days:5})
+
+# Insert many  (documents)
+db.courses.insertMany([{title:"React",price:8000,days:5},{title:"Redux",price:8000,days:5}])
+
+# using mongoimport (Local - On Prem)
+
+mongoimport --db coursesdb --collection courses --jsonArray --file /Users/achilles/Documents/Trainings/2025/DBSTech_MongoDB_Oct_25/DBS_Tech_Oct/DAY1/courses.json
+
+
+# using mongoimport (Cloud - Atlas)
+
+    mongoimport --uri="mongodb+srv://<username>:<password>@<cluster-url>/<database>?retryWrites=true&w=majority" --db myDatabase --collection myCollection --file myData.json --jsonArray
