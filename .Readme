@@ -76,4 +76,6 @@ match -> group
 db.users.aggregate([{$match : { "gender":"male"}},{$group:{_id : {nat: "$nat"},"userscount": {$sum:1}}}])
 
 // To find users with age > 50 by gender
-// find avg age & number of users corresponding to that group
+// find avg ($avg) age & number of users corresponding to that group (avg age) and sort userscount to be descending
+
+db.users.aggregate([{$match : {"dob.age": {$gt:50} }},{$group:{_id : {gender : "$gender" } , avgAge : {$avg: "$dob.age" } ,"userscount": {$sum:1}}},{$sort:{userscount:-1}}])
