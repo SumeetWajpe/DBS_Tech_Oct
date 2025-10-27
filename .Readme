@@ -2,6 +2,9 @@
 
 https://codeshare.io/a3ZxVB
 
+# Github Repo (Training demos)
+https://github.com/SumeetWajpe/DBS_Tech_Oct
+
 # MongoDB Commands
 
 # Show all databases
@@ -59,3 +62,18 @@ trainingRoom:"Canopy"
 
 db.courses.find({},{title:1, venue: {trainingRoom:1} })
 db.courses.find({},{title:1, "venue.trainingRoom" : 1})
+
+
+
+# Find users having (dob)age greater than 30 or nat CA -> 
+db.users.find({ $or: [{ "dob.age": { $gt: 30 } }, { "nat": "CA" }] }).limit(2)
+
+# sorting - -1 for descending , 1 for acsending
+db.users.find({ $or: [{ "dob.age": { $gt: 30 } }, { "nat": "CA" }] }).sort({"dob.age":-1}).limit(3)
+
+# Aggregation pipeline
+match -> group 
+db.users.aggregate([{$match : { "gender":"male"}},{$group:{_id : {nat: "$nat"},"userscount": {$sum:1}}}])
+
+// To find users with age > 50 by gender
+// find avg age & number of users corresponding to that group
