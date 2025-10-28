@@ -55,3 +55,21 @@ db.users.aggregate([
     $out: "transformedusers",
   },
 ]);
+
+
+// 1.
+db.users.explain("executionStats").find({ "dob.age": { $gt: 70 } });
+//2.
+db.users.createIndex({ "dob.age": 1 });
+// 3.
+db.users.explain("executionStats").find({ "dob.age": { $gt: 70 } });
+
+//1. 
+db.users
+  .explain("executionStats")
+  .find({ "dob.age": { $gt: 60 }, gender: "male" });
+
+  //2. 
+db.users.createIndex({ "dob.age": 1, gender: 1 }, { name: "age_gender" });
+// 3.
+db.users.explain("executionStats").find({ "dob.age": { $gt: 60 },"gender":"male" });
